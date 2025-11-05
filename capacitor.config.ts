@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'app.lovable.82479b105df043f6a2d6f304780cffc2',
+  appId: 'com.espguard.app',
   appName: 'ESP32 Security Monitor',
   webDir: 'dist',
   server: {
