@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect } from 'react';
 import { BleClient, numbersToDataView, numberToUUID } from '@capacitor-community/bluetooth-le';
 
 const TARGET_NAME = 'ESP32-Security-TX';
-const SERVICE_UUID = '6E400001-B5A3-F393-E0A9-E50E24DCCA9E';
+const SERVICE_UUID = '4fafc201-1fb5-459e-8fcc-c5c9c331914b';
 const CHAR_UUID = '6E400002-B5A3-F393-E0A9-E50E24DCCA9E';
 
 export type SystemState = 'ACTIVE' | 'SERVICE' | 'MOTION' | 'UNKNOWN';
