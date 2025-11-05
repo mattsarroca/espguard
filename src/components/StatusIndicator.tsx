@@ -9,15 +9,15 @@ interface StatusIndicatorProps {
 export const StatusIndicator = ({ state }: StatusIndicatorProps) => {
   const getStateConfig = () => {
     switch (state) {
-      case 'ACTIVE':
+      case 'NORMAL':
         return {
           icon: Shield,
-          text: 'System Active',
+          text: 'System Normal',
           color: 'text-status-active',
           bgColor: 'bg-status-active/10',
           borderColor: 'border-status-active',
         };
-      case 'SERVICE':
+      case 'MAINT':
         return {
           icon: Settings,
           text: 'Maintenance Mode',
@@ -25,10 +25,10 @@ export const StatusIndicator = ({ state }: StatusIndicatorProps) => {
           bgColor: 'bg-status-service/10',
           borderColor: 'border-status-service',
         };
-      case 'MOTION':
+      case 'ALARM':
         return {
           icon: AlertTriangle,
-          text: 'Motion Detected!',
+          text: 'ALARM - Motion Detected!',
           color: 'text-status-motion',
           bgColor: 'bg-status-motion/10',
           borderColor: 'border-status-motion',

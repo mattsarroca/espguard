@@ -17,11 +17,11 @@ const Index = () => {
   }, [requestPermissions]);
 
   useEffect(() => {
-    if (currentState === 'MOTION') {
+    if (currentState === 'ALARM') {
       triggerAlarm();
       toast({
-        title: "Motion Detected!",
-        description: "Security alert triggered",
+        title: "ALARM!",
+        description: "Motion detected by IR sensor",
         variant: "destructive",
       });
     }

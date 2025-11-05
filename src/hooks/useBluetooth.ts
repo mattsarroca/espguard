@@ -5,7 +5,7 @@ const TARGET_NAME = 'ESP32-Security-TX';
 const SERVICE_UUID = '4fafc201-1fb5-459e-8fcc-c5c9c331914b';
 const CHAR_UUID = 'beb5483e-36e1-4688-b7f5-ea07361b26a8';
 
-export type SystemState = 'ACTIVE' | 'SERVICE' | 'MOTION' | 'UNKNOWN';
+export type SystemState = 'NORMAL' | 'MAINT' | 'ALARM' | 'UNKNOWN';
 
 export interface LogEntry {
   timestamp: Date;
@@ -30,11 +30,16 @@ export const useBluetooth = () => {
 
   const handleNotification = useCallback((value: DataView) => {
     const decoder = new TextDecoder();
-    const stateText = decoder.decode(value);
+    const stateText = decoder.decode(value).trim();
     
-    if (stateText === 'ACTIVE' || stateText === 'SERVICE' || stateText === 'MOTION') {
+    console.log('Received notification:', stateText);
+    
+    if (stateText === 'NORMAL' || stateText === 'MAINT' || stateText === 'ALARM') {
       setCurrentState(stateText as SystemState);
-      addLog(`State changed to ${stateText}`, stateText as SystemState);
+      addLog(`State: ${stateText}`, stateText as SystemState);
+    } else {
+      console.warn('Unknown state received:', stateText);
+      addLog(`Unknown state: ${stateText}`);
     }
   }, [addLog]);
 

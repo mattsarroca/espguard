@@ -9,11 +9,11 @@ interface ActivityLogProps {
 export const ActivityLog = ({ logs }: ActivityLogProps) => {
   const getStateColor = (state?: string) => {
     switch (state) {
-      case 'ACTIVE':
+      case 'NORMAL':
         return 'text-status-active';
-      case 'SERVICE':
+      case 'MAINT':
         return 'text-status-service';
-      case 'MOTION':
+      case 'ALARM':
         return 'text-status-motion';
       default:
         return 'text-muted-foreground';
